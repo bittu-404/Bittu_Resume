@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akhlaqus Salam | Premium Web Developer Resume</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* --- Premium Color Palette --- */
+        :root {
+            --bg-color: #0f172a; /* Deep navy background */
+            --container-bg: rgba(255, 255, 255, 0.05);
+            --primary-dark-blue: #1e293b; /* Premium dark blue */
+            --accent-gold: #fbbf24; /* Rich gold */
+            --accent-teal: #14b8a6; /* Sophisticated teal */
+            --light-blue-bg: rgba(30, 41, 59, 0.7); /* Glass effect background */
+            --dark-text: #f1f5f9; /* Light text for dark background */
+            --light-text: #ffffff;
+            --skill-bar-bg: #334155;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(30, 41, 59, 0.2) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Floating animation for background elements */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .floating-element {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.1) 0%, transparent 70%);
+            z-index: -1;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 5s;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.1) 0%, transparent 70%);
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 10s;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* --- Main Resume Container & Load Animation --- */
+        .resume-container {
+            max-width: 1000px;
+            width: 100%;
+            background: var(--container-bg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            border-radius: 20px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInSlideUp 0.8s 0.2s ease-out forwards;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- Header Section --- */
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px;
+            background: linear-gradient(135deg, var(--primary-dark-blue) 0%, #0f172a 100%);
+            color: var(--light-text);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .resume-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .header-left, .contact-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-left .full-name {
+            font-size: 3.2em;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .header-left .full-name::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-teal));
+            border-radius: 3px;
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: expandLine 1s 0.5s ease-out forwards;
+        }
+
+        .header-left .nickname {
+            font-size: 1.4em;
+            font-weight: 400;
+            color: var(--accent-gold);
+            margin-top: 5px;
+            letter-spacing: 2px;
+        }
+
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .contact-info p {
+            font-size: 1em;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-info p:hover {
+            transform: translateX(-5px);
+            background: rgba(251, 191, 36, 0.1);
+            border-color: var(--accent-gold);
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--accent-gold);
+            width: 20px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .contact-info p:last-child { margin-bottom: 0; }
+
+        /* --- Main Body (Two-Column Layout) --- */
+        .resume-body { 
+            display: flex;
+            position: relative;
+        }
+
+        /* --- Left Column --- */
+        .left-column {
+            width: 40%;
+            background-color: var(--light-blue-bg);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border-right: 1px solid var(--glass-border);
+        }
+        
+        .left-column h2 {
+            font-size: 1.4em;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .left-column h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-gold), var(--accent-teal));
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .left-column h2:hover::after {
+            width: 80px;
+        }
+        
+        .left-column .section { 
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .left-column .section:nth-child(1) { animation-delay: 0.3s; }
+        .left-column .section:nth-child(2) { animation-delay: 0.5s; }
+        .left-column .section:nth-child(3) { animation-delay: 0.7s; }
+        .left-column .section:nth-child(4) { animation-delay: 0.9s; }
+
+        .career-objective-box {
+            font-size: 1em;
+            color: #cbd5e1;
+            border-left: 3px solid var(--accent-teal);
+            padding-left: 20px;
+            line-height: 1.7;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+        
+        .career-objective-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border-left: 3px solid var(--accent-gold);
+        }
+        
+        .education-item, .experience-item, .languages-item {
+            padding: 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .education-item:hover, .experience-item:hover, .languages-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .education-item p:first-child, .experience-item p:first-child {
+            font-weight: 600;
+            color: var(--accent-gold);
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        
+        .education-item p:last-child, .experience-item p:last-child {
+            color: #94a3b8;
+        }
+        
+        .languages-item p { 
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .languages-item p:last-child { margin-bottom: 0; }
+        
+        .language-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-teal);
+            margin-right: 10px;
+            animation: pulse 2s infinite;
+        }
+
+        /* --- Right Column --- */
+        .right-column {
+            width: 60%;
+            background: var(--container-bg);
+            padding: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .right-column h2 {
+            font-size: 1.4em;
+            color: var(--accent-teal);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding-bottom: 12px;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .right-column h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-teal), var(--accent-gold));
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+        
+        .right-column h2:hover::after {
+            width: 80px;
+        }
+        
+        .right-column .section { 
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateX(20px);
+            animation: slideInRight 0.8s ease forwards;
+        }
+
+        .right-column .section:nth-child(1) { animation-delay: 0.4s; }
+        .right-column .section:nth-child(2) { animation-delay: 0.6s; }
+
+        /* --- Skills Section with Animation --- */
+        .skill { 
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .skill-name { 
+            font-weight: 600; 
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .skill-percent {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+        
+        .skill-bar { 
+            width: 100%; 
+            height: 10px; 
+            background-color: var(--skill-bar-bg); 
+            border-radius: 5px; 
+            overflow: hidden; 
+            position: relative;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: linear-gradient(to right, var(--accent-teal), var(--accent-gold));
+            border-radius: 5px;
+            transform-origin: left;
+            transform: scaleX(0);
+            animation: fillBar 1.5s ease-out forwards;
+            position: relative;
+            box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+        }
+        
+        .skill-level::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        .skill:nth-child(1) .skill-level { animation-delay: 0.3s; }
+        .skill:nth-child(2) .skill-level { animation-delay: 0.4s; }
+        .skill:nth-child(3) .skill-level { animation-delay: 0.5s; }
+        .skill:nth-child(4) .skill-level { animation-delay: 0.6s; }
+        .skill:nth-child(5) .skill-level { animation-delay: 0.7s; }
+        .skill:nth-child(6) .skill-level { animation-delay: 0.8s; }
+        .skill:nth-child(7) .skill-level { animation-delay: 0.9s; }
+        .skill:nth-child(8) .skill-level { animation-delay: 1.0s; }
+        .skill:nth-child(9) .skill-level { animation-delay: 1.1s; }
+        .skill:nth-child(10) .skill-level { animation-delay: 1.2s; }
+
+        .html { width: 90%; } .css { width: 85%; } .javascript { width: 75%; }
+        .python { width: 70%; } .c { width: 60%; } .cpp { width: 65%; }
+        .java { width: 50%; } .graphic-design { width: 80%; } .ui-ux { width: 88%; }
+        .communication { width: 95%; }
+        
+        .project-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border: 1px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent-gold), var(--accent-teal));
+            transition: width 0.5s ease;
+        }
+        
+        .project-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+        }
+        
+        .project-item:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+        
+        .project-item i {
+            color: var(--accent-gold);
+            font-size: 2em;
+            margin-right: 25px;
+            margin-top: 5px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .project-item:hover i {
+            transform: scale(1.2) rotate(5deg);
+            color: var(--accent-teal);
+        }
+        
+        .project-item p {
+            z-index: 1;
+            position: relative;
+        }
+
+        .resume-footer {
+            text-align: center;
+            padding: 25px;
+            background: rgba(15, 23, 42, 0.8);
+            color: #94a3b8;
+            font-size: 0.9em;
+            border-top: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resume-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold), var(--accent-teal), var(--accent-gold));
+            background-size: 200% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        /* Animations */
+        @keyframes fadeInSlideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInLeft {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fillBar {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes expandLine {
+            to { transform: scaleX(1); }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .resume-container {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .resume-header {
+                flex-direction: column;
+                padding: 30px 20px;
+                text-align: center;
+            }
+
+            .header-left {
+                margin-bottom: 20px;
+            }
+            
+            .header-left .full-name {
+                font-size: 2.2em;
+            }
+
+            .resume-body {
+                flex-direction: column;
+            }
+
+            .left-column,
+            .right-column {
+                width: 100%;
+                padding: 30px 20px;
+            }
+            
+            .contact-info p {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+    <div class="floating-element"></div>
+
+    <div class="resume-container">
+        <header class="resume-header">
+            <div class="header-left">
+                <h1 class="full-name">AKHLAQUS SALAM</h1>
+                <p class="nickname">BITTU</p>
+            </div>
+            <div class="contact-info">
+                <p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Purnea%2C+Bihar" target="_blank">
+                        <i class="fas fa-map-marker-alt"></i> Purnea, Bihar
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:8294987761">
+                        <i class="fas fa-mobile-alt"></i> 8294987761
+                    </a>
+                </p>
+                <p>
+                    <a href="mailto:bittubrother262@gmail.com">
+                        <i class="fas fa-envelope"></i> bittubrother262@gmail.com
+                    </a>
+                </p>
+            </div>
+        </header>
+
+        <main class="resume-body">
+            <div class="left-column">
+                <div class="section">
+                    <h2>Career Objective</h2>
+                    <p class="career-objective-box">
+                        To obtain a challenging position as a Web Developer where I can utilize my coding, design, and creative problem-solving skills to build innovative digital solutions.
+                    </p>
+                </div>
+                
+                <div class="section">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <p>B.Com (Bachelor of Commerce)</p>
+                        <p>B.N.M.V. College, Sahugadh, Madhepura</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Experience</h2>
+                     <div class="experience-item">
+                        <p>Developer</p>
+                        <p>Apexza (1 Year)</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Languages</h2>
+                    <div class="languages-item">
+                       <p><span class="language-dot"></span> Hindi (Native)</p>
+                       <p><span class="language-dot"></span> English (Professional)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <h2>Skills</h2>
+                    <div class="skills-list">
+                        <div class="skill">
+                            <p class="skill-name">HTML <span class="skill-percent">90%</span></p>
+                            <div class="skill-bar"><div class="skill-level html"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">CSS <span class="skill-percent">85%</span></p>
+                            <div class="skill-bar"><div class="skill-level css"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">JavaScript <span class="skill-percent">75%</span></p>
+                            <div class="skill-bar"><div class="skill-level javascript"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">Python <span class="skill-percent">70%</span></p>
+                            <div class="skill-bar"><div class="skill-level python"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">C <span class="skill-percent">60%</span></p>
+                            <div class="skill-bar"><div class="skill-level c"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">C++ <span class="skill-percent">65%</span></p>
+                            <div class="skill-bar"><div class="skill-level cpp"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">Java <span class="skill-percent">50%</span></p>
+                            <div class="skill-bar"><div class="skill-level java"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">Graphic Design <span class="skill-percent">80%</span></p>
+                            <div class="skill-bar"><div class="skill-level graphic-design"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">UI/UX Design <span class="skill-percent">88%</span></p>
+                            <div class="skill-bar"><div class="skill-level ui-ux"></div></div>
+                        </div>
+                        <div class="skill">
+                            <p class="skill-name">Communication <span class="skill-percent">95%</span></p>
+                            <div class="skill-bar"><div class="skill-level communication"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>Achievements / Projects</h2>
+                    <div class="project-item">
+                        <i class="fas fa-desktop"></i>
+                        <p>Successfully designed, developed, and launched a professional, responsive website from concept to deployment, implementing modern design principles and optimal user experience.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="resume-footer">
+            <p>© 2025 Akhlaqus Salam (Bittu) | Premium Web Developer Portfolio</p>
+        </footer>
+    </div>
+
+</body>
+</html>
